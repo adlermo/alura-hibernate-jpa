@@ -1,5 +1,6 @@
 package br.com.adlermo.store.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -30,6 +31,11 @@ public class ProductDao {
     public List<Product> readAllByCategory(String category) {
         return this.entityManager.createQuery("SELECT p FROM Produto p WHERE p.category.name = :category", Product.class)
                 .setParameter("category", category).getResultList();
+    }
+
+    public BigDecimal readPriceProductById(Long id) {
+        return this.entityManager.createQuery("SELECT p.price FROM Produto p WHERE p.id = :id", BigDecimal.class)
+                .setParameter("id", id).getSingleResult();
     }
 
     public Product readById(Long id) {
