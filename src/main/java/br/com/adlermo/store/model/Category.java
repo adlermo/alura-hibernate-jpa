@@ -7,13 +7,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
+@NoArgsConstructor
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Getter
