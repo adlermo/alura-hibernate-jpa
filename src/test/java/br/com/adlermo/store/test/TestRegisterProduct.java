@@ -3,8 +3,6 @@ package br.com.adlermo.store.test;
 import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.adlermo.store.dao.ProductDao;
 import br.com.adlermo.store.model.Product;
