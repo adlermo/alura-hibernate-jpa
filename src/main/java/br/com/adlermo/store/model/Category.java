@@ -8,19 +8,17 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
+@Getter
 @NoArgsConstructor
 public class Category {
 
     @Id
-    @Setter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Getter
     private String name;
 
     public Category(String name) {
