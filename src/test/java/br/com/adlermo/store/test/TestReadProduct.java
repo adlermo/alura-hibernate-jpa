@@ -8,7 +8,7 @@ import br.com.adlermo.store.dao.ProductDao;
 import br.com.adlermo.store.model.Product;
 import br.com.adlermo.store.util.JPAUtil;
 
-public class TestListProduct {
+public class TestReadProduct {
 
     public static void main(String[] args) {
 

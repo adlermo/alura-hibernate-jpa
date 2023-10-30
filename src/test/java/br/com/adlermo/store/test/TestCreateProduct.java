@@ -26,23 +26,23 @@ public class TestCreateProduct {
         // Persistence.createEntityManagerFactory("store");
         // EntityManager manager = factory.createEntityManager();
 
-        EntityManager manager = JPAUtil.getEntityManager();
+        EntityManager em = JPAUtil.getEntityManager();
 
-        CategoryDao categoryDao = new CategoryDao(manager);
-        ProductDao productDao = new ProductDao(manager);
+        CategoryDao categoryDao = new CategoryDao(em);
+        ProductDao productDao = new ProductDao(em);
 
-        manager.getTransaction().begin();
+        em.getTransaction().begin();
 
         categoryDao.create(category);
         productDao.create(phone);
 
-        manager.getTransaction().commit();
+        em.getTransaction().commit();
 
         List<Product> products = productDao.readAll();
 
         products.forEach(p -> System.out.println(p.toString()));
 
-        manager.close();
+        em.close();
     }
 
 }
