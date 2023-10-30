@@ -14,11 +14,17 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class Customer {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
-    private int document;
+
+    private String document;
+
+    public Customer(String name, String document) {
+        this.name = name;
+        this.document = document;
+    }
 }

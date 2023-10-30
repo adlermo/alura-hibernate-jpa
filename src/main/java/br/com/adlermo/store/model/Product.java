@@ -17,7 +17,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "products")
 @Getter
-@Setter
 @NoArgsConstructor
 public class Product {
 
@@ -26,8 +25,11 @@ public class Product {
     private Long id;
 
     private String name;
+
     private String description;
+
     private BigDecimal price;
+
     private LocalDateTime creationDateTime = LocalDateTime.now();
 
     @ManyToOne
