@@ -2,7 +2,7 @@ package br.com.adlermo.store.dao;
 
 import javax.persistence.EntityManager;
 
-import br.com.adlermo.store.model.Category;
+import br.com.adlermo.store.model.Order;
 
 public class OrderDao {
     private EntityManager eManager;
@@ -11,7 +11,7 @@ public class OrderDao {
         this.eManager = em;
     }
 
-    public void create(Category category) {
-        this.eManager.persist(category);
+    public void create(Order order) {
+        this.eManager.persist(order);
     }
 }

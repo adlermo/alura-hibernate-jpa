@@ -1,8 +1,10 @@
 package br.com.adlermo.store.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
-import br.com.adlermo.store.model.Category;
+import br.com.adlermo.store.model.Customer;
 
 public class CustomerDao {
 
@@ -12,7 +14,11 @@ public class CustomerDao {
         this.eManager = em;
     }
 
-    public void create(Category category) {
-        this.eManager.persist(category);
+    public void create(Customer customer) {
+        this.eManager.persist(customer);
+    }
+
+    public List<Customer> readAll() {
+        return this.eManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
     }
 }

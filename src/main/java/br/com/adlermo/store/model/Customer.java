@@ -27,4 +27,14 @@ public class Customer {
         this.name = name;
         this.document = document;
     }
+
+    @Override
+    public String toString() {
+        return "--------------------\n" +
+                " id= " + this.id + "\n" +
+                " name= " + this.name + "\n" +
+                " document= " + this.document + "\n" +
+                "--------------------";
+    }
+
 }
