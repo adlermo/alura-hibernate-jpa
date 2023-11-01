@@ -22,6 +22,12 @@ public class CustomerDao {
         return this.eManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
     }
 
+    public Customer readById(Long id) {
+        return this.eManager.createQuery("SELECT c FROM Customer c WHERE c.id = :id", Customer.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
     public void delete(Customer customer) {
         customer = this.eManager.merge(customer);
         this.eManager.remove(customer);
