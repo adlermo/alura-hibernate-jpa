@@ -1,10 +1,12 @@
 package br.com.adlermo.store.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +38,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> items = new ArrayList<>();
 
-    private float value;
+    private BigDecimal total = BigDecimal.ZERO;
 
     public Order(Customer customer) {
         this.customer = customer;
@@ -45,5 +47,17 @@ public class Order {
     public void addProduct(OrderItem item) {
         item.setOrder(this);
         this.items.add(item);
+        this.total = this.total.add(item.getTotal());
+    }
+
+    @Override
+    public String toString() {
+        return "{\n" +
+                " id: " + this.id + ",\n" +
+                " date_time: " + this.dateTime + ",\n" +
+                " customer: " + this.customer.getName() + ",\n" +
+                " items: " + this.items.size() + "\n" +
+                " total: $ " + this.total + "\n" +
+                "}";
     }
 }
