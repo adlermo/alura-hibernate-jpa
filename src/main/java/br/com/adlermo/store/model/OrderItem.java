@@ -42,4 +42,7 @@ public class OrderItem {
         this.order = order;
     }
 
+    public BigDecimal getTotal() {
+        return price.multiply(new BigDecimal(amount));
+    }
 }
