@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
@@ -43,6 +43,12 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("%s - %s\n%s\n$ %.2f", this.category.getName(), this.name, this.description, this.price);
+        return "{\n" +
+                " id: " + this.id + ",\n" +
+                " name: " + this.name + ",\n" +
+                " description: " + this.description + ",\n" +
+                " price: " + this.price + ",\n" +
+                " category: " + this.category.getName() + "\n" +
+                "}";
     }
 }

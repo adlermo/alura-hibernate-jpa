@@ -21,4 +21,9 @@ public class CustomerDao {
     public List<Customer> readAll() {
         return this.eManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
     }
+
+    public void delete(Customer customer) {
+        customer = this.eManager.merge(customer);
+        this.eManager.remove(customer);
+    }
 }

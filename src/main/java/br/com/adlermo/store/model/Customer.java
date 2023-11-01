@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
@@ -30,11 +30,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "--------------------\n" +
-                " id= " + this.id + "\n" +
-                " name= " + this.name + "\n" +
-                " document= " + this.document + "\n" +
-                "--------------------";
+        return "{\n" +
+                " id: " + this.id + ",\n" +
+                " name: " + this.name + ",\n" +
+                " document: " + this.document + ",\n" +
+                "}";
     }
 
 }
