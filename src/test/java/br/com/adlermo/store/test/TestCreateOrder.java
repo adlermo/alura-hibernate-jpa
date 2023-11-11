@@ -20,7 +20,7 @@ public class TestCreateOrder {
         ProductDao productDao = new ProductDao(em);
 
         Customer customer = customerDao.readById(9l);
-        Product product = productDao.readAll().get(0);
+        Product product = productDao.readById(8l);
 
         Order order = new Order(customer);
 

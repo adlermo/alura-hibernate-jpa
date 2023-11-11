@@ -31,9 +31,9 @@ public class OrderDao {
     public List<Object[]> readSalesReport() {
         return this.eManager.createQuery("SELECT product.name, " +
                 "SUM(item.amount), " +
-                "MAX(order.dateTime) " +
-                "FROM Order order " +
-                "JOIN order.items item " +
+                "MAX(o.dateTime) " +
+                "FROM Order o " +
+                "JOIN o.items item " +
                 "JOIN item.product product " +
                 "GROUP BY product.name " +
                 "ORDER BY item.amount DESC", Object[].class).getResultList();

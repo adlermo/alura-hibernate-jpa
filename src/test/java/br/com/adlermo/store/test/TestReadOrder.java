@@ -21,8 +21,10 @@ public class TestReadOrder {
 
         System.out.println("Total amount sold: " + orderDao.readTotalValue());
 
-        // orderDao.readSalesReport().forEach(line -> {
-        // System.out.println(line);
-        // });
+        orderDao.readSalesReport().forEach(line -> {
+            System.out.println(line[0]);
+            System.out.println(line[1]);
+            System.out.println(line[2]);
+        });
     }
 }
