@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.adlermo.store.model.Order;
+import br.com.adlermo.store.vo.SalesReportVO;
 
 public class OrderDao {
     private EntityManager eManager;
@@ -28,15 +29,16 @@ public class OrderDao {
                 "FROM Order o", BigDecimal.class).getSingleResult();
     }
 
-    public List<Object[]> readSalesReport() {
-        return this.eManager.createQuery("SELECT product.name, " +
+    public List<SalesReportVO[]> readSalesReport() {
+        return this.eManager.createQuery("SELECT new br.com.adlermo.store.vo.SalesReportVO(" +
+                "product.name, " +
                 "SUM(item.amount), " +
-                "MAX(o.dateTime) " +
+                "MAX(o.dateTime)) " +
                 "FROM Order o " +
                 "JOIN o.items item " +
                 "JOIN item.product product " +
                 "GROUP BY product.name " +
-                "ORDER BY item.amount DESC", Object[].class).getResultList();
+                "ORDER BY item.amount DESC", SalesReportVO[].class).getResultList();
     }
 
     public void delete(Order order) {
